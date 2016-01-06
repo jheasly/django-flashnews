@@ -1,0 +1,36 @@
+{% extends "dox/bulldog.html" %}
+{% load paragraphs %}
+
+{% block title %}Area closures & delayed openings | {% endblock %}
+
+{% block home %}: Area closures & delayed openings{% endblock %}
+
+{% block pub_date %}{% endblock %}
+
+{% block content %}
+{% autoescape off %}
+<div id="primary" class="c630 fl mr10">
+<!-- ##### BEGIN PRIMARY COLUMN ##### -->
+	<div class="se bgfff mb15">
+	<div class="sw">
+
+	{% if object_list %}
+		<p>The information below is supplied by the relevant agencies.</p>
+		<!-- {{ school_count }} -->
+		{% for participant in object_list %}
+			<h4>
+				{% if participant.org_url %}<a href="{{ participant.org_url }}" title="{{ participant.org_url }}" target="_blank">{% endif %}{{ participant.org_name }}{% if participant.org_url %}</a>{% endif %} | {{ participant.category.name }}
+			</h4>
+			<p>{% if participant.emergency_set.latest.updated %}<span class="attn"><img src="http://assets.registerguard.com/v3/images/template/icons/bug-updated.gif" alt="UPDATED!"></span> {% endif %}<span class="lede">{{ participant.emergency_set.latest.effective_date|date:"f a, l, M. j, Y" }}</span> &mdash; {{ participant.emergency_set.latest.detail }}</p>
+		{% endfor %}
+	{% else %}
+		<h4>&nbsp;</h4>
+		<p>No emergency information at this time.</p>
+	{% endif %}
+	
+	</div> <!-- /.sw -->
+	</div> <!-- /.se bgfff mb15 -->
+<!-- ##### END PRIMARY COLUMN ##### -->
+</div> <!-- /#primary /.c630 fl mr10-->
+{% endautoescape %}
+{% endblock %}

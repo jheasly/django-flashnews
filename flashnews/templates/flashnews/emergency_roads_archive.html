@@ -1,0 +1,30 @@
+{% extends "dox/bulldog.html" %}
+{% load paragraphs %}
+
+{% block head_title %}Area emergency road information{% endblock %}
+
+{% block home %}: Area emergency road information{% endblock %}
+
+{% block pub_date %}{% endblock %}
+
+{% block content %}
+{% autoescape off %}
+<div id="primary" class="c630 fl mr10">
+
+	{% if object_list %}
+		{% block info_from %}<p class="give">The information below is supplied by the relevant agencies.</p>{% endblock %}
+		{% for emergency in object_list %}
+			<h1 class="h5">
+				{% if emergency.participant.org_url %}<a href="{{ emergency.participant.org_url }}" title="{{ emergency.participant.org_url }}" target="_blank">{% endif %}{{ emergency.participant.org_name }}{% if emergency.participant.org_url %}</a>{% endif %} | {{ emergency.participant.category.name }}
+			</h1>
+			<p>{% if emergency.updated %}<span class="attn"><img src="http://assets.registerguard.com/v3/images/template/icons/bug-updated.gif" alt="UPDATED!"></span> {% endif %}<span class="lede">{{ emergency.effective_date|date:"f a, l, M. j, Y" }}</span></p>
+			{{ emergency.detail|paragraphs }}
+		{% endfor %}
+	{% else %}
+		<h4>&nbsp;</h4>
+		{% block no_info %}<p>No emergency information at this time.</p>{% endblock %}
+	{% endif %}
+	
+</div> <!-- /#primary /.c630 fl mr10-->
+{% endautoescape %}
+{% endblock %}

@@ -1,0 +1,5 @@
+.DS_Store
+*.pyc
+*.xml
+flashnews/management/commands/config.py
+flashnews/management/commands/get_flash_news.py

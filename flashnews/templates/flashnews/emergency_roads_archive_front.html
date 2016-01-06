@@ -1,0 +1,17 @@
+{% if object_list %}
+	
+	<hr>
+	
+	<section>
+		
+		<h1 class="head"><a href="http://projects.registerguard.com/school-closings/roads/">Area emergency road information</a></h1>
+		
+		<p>Updated every 15 minutes, check <a href="http://projects.registerguard.com/school-closings/roads/">this list of emergency road information</a> from ODOT and the Oregon State Police.</p>
+		
+	</section>
+	
+{% else %}
+	
+	<!-- No area emergency road information @ {% now "P T o\n l, N j, Y" %} -->
+	
+{% endif %}
