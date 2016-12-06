@@ -1,22 +1,20 @@
 {% if object_list %}
 	
-	<hr>
-	
 	<section>
-		
+
 		<h1 class="head"><a href="http://projects.registerguard.com/school-closings/">School closures, delays</a></h1>
-		
+
 		<p>
 			Updated every 15 minutes, check <a href="http://projects.registerguard.com/school-closings/">this list of delayed openings and closures</a>.
 			<br>
 			Affected school{{ object_list|pluralize }}:
 			{% for school in object_list %}{{ school.participant }}{% if not forloop.last %}, {% endif %}{% endfor %}
 		</p>
-		
+
 	</section>
-	
+
 {% else %}
-	
+
 	<!-- No school closure/delay information @ {% now "P T o\n l, N j, Y" %} -->
-	
+
 {% endif %}
