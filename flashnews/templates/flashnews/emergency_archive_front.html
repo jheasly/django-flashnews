@@ -1,4 +1,4 @@
-{% if object_list %}
+{% if object_list.count < 7 and object_list.count > 0 %}
 
 	<section>
 
@@ -17,6 +17,45 @@
 
 {% else %}
 
+	{# Begin nested old Django template "if". Derp. #}
+	{% if object_list.count > 6 %}
+
+	<section>
+
+		<article>
+
+			<div class="force">
+
+				<header>
+
+					<hgroup>
+
+						<h2 class="label">
+
+							<a href="//registerguard.com/rg/news/categories/?subcats=21670618">Schools</a>
+
+						</h2>
+
+						<h1 class="h5">
+
+							<a href="//projects.registerguard.com/school-closings/">Full list of school delays and closures</a>
+
+						</h1>
+
+					</hgroup>
+				</header>
+
+			</div> <!-- /.force -->
+		</article>
+
+		<hr>
+
+	</section>
+
+	{% else %}
+
 	<!-- No school closure/delay information @ {% now "P T o\n l, N j, Y" %} -->
+
+	{% endif %}
 
 {% endif %}

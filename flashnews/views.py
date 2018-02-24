@@ -6,9 +6,11 @@ from django.db.models import Q, Max
 from django.views.generic import list_detail
 from django.shortcuts import get_object_or_404
 
+HOURS_BACK = 1
+
 def half_day_ago():
-    half_day_ago_diff = timedelta(seconds = -28800) # <= 8 hour's worth of seconds
-    half_day_ago = datetime.today() + half_day_ago_diff
+    half_day_ago_diff = timedelta(hours = HOURS_BACK)
+    half_day_ago = datetime.today() - half_day_ago_diff
     return half_day_ago
 
 def last_twelve_hours(request, template_name):

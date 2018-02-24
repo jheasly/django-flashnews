@@ -1,4 +1,5 @@
 .DS_Store
+.vscode
 *.pyc
 *.xml
 flashnews/management/commands/config.py
