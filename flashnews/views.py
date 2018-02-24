@@ -6,7 +6,7 @@ from django.db.models import Q, Max
 from django.views.generic import list_detail
 from django.shortcuts import get_object_or_404
 
-HOURS_BACK = 1
+HOURS_BACK = 7
 
 def half_day_ago():
     half_day_ago_diff = timedelta(hours = HOURS_BACK)
