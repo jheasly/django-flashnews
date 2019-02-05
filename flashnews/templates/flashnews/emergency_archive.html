@@ -3,6 +3,24 @@
 
 {% block head_title %}Area closures & delayed openings{% endblock %}
 
+{% block head_parsely %}
+<script type="application/ld+json">
+	{
+		"@context": "http://schema.org",
+		"@type": "NewsArticle",
+		"headline": "Area closures, delayed openings, {{ object_list.0.effective_date|date:"l, N j, Y" }}, The Register-Guard",
+		"url": "http://{{ request.META.HTTP_HOST }}{{ request.path }}",
+		"thumbnailUrl": "https://www.registerguard.com/Global/images/head/nameplate/fb/registerguard_fb_300x300.png",
+		"datePublished": "{{ object_list.0.effective_date|date:'Y-m-d'}}T00:00:00",
+		"dateModified": "{{ object_list.0.effective_date|date:'c' }}",
+		"articleSection": "News",
+		"creator": ["John Heasly"],
+		"keywords": ["school-closings-delays"]
+}
+</script>
+<!-- /Parse.ly global main meta -->
+{% endblock head_parsely %}
+
 {% block home %}: Area closures & delayed openings{% endblock %}
 
 {% block pub_date %}{% endblock %}
