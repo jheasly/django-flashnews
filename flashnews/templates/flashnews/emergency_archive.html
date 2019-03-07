@@ -12,7 +12,7 @@
 <div id="primary" class="c630 fl mr10">
 
 	{% if object_list %}
-		<p class="give">The information below is supplied by the relevant agencies.</p>
+		<p class="give">The information below is {% if how_old %}from the last {{ how_old }} hours as {% endif %}supplied by the relevant agencies via the <a href="https://www.flashalert.net/" target="_blank" rel="noopener noreferrer">FlashAlert</a> system and is updated every 15 minutes. Follow <a href="https://twitter.com/registerguard" target="_blank" rel="noopener noreferrer">@registerguard on Twitter</a> to receive the updates directly.</p>
 		<!-- {{ school_count }} -->
 		{% for emergency in object_list %}
 			<h2 class="dateline">{{ emergency.participant.category.name }}</h2>

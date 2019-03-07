@@ -6,7 +6,7 @@ from django.db.models import Q, Max
 from django.views.generic import list_detail
 from django.shortcuts import get_object_or_404
 
-HOURS_BACK = 7
+HOURS_BACK = 12
 
 def half_day_ago():
     half_day_ago_diff = timedelta(hours = HOURS_BACK)
@@ -46,6 +46,7 @@ def last_twelve_hours(request, template_name):
             "Umpqua Valley Chrisitian Schools",
         ]),
         template_name = template_name,
+        extra_context = {'how_old': HOURS_BACK}
     )
 
 # 
